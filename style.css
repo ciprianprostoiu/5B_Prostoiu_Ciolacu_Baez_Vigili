@@ -1,0 +1,24 @@
+.tbl1 {
+    height: 70px;
+}
+
+.redb {
+    border-width: 10px;
+    border-color: red;
+}
+
+.categorie {
+    padding: 10px;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+h1 {
+    color: #6c757d;
+    font-family: Helvetica;
+    font-weight: bold;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+#map { width: 600px; height: 500px; }
