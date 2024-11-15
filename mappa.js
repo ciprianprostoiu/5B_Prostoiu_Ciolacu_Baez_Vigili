@@ -5,7 +5,7 @@ export const createMap = () =>{
     let places = [];
      return{
         add: (element,conf,Map) =>{
-            let url="https://us1.locationiq.com/v1/search?key=%TOKEN &q=%NOME &format=json&"
+            let url="https://us1.locationiq.com/v1/search?key=%TOKEN &q=%NOME, milano &format=json&"
             url = url.replace("%TOKEN",conf.token)
             url = url.replace("%NOME",element)
             fetch(url)
@@ -28,7 +28,7 @@ export const createMap = () =>{
             }).addTo(map);
             places.forEach((place) => {
                const marker = L.marker(place.coords).addTo(map);
-               marker.bindPopup(`<b>${place.name}</b>`);
+               marker.bindPopup(`<h2>${place.name}</h2><b>${place.name}</b>`);
             });
      }
     }
