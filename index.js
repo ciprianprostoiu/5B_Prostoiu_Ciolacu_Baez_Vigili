@@ -22,6 +22,7 @@ fetch("conf.json").then(r => r.json()).then(conf => {
         table1.setData(data); // Imposta i dati nel componente tabella
         table1.setParentElement(tabella);
         table1.render(starDay);// Renderizza la tabella con i dati recuperati
+        Map.setData(data)
         Map.render();
     });
     precendente.onclick = () => {

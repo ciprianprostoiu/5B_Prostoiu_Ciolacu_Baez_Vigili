@@ -9,6 +9,7 @@ export const createMap = () =>{
     let map = L.map('map',{maxBounds: Limiti,}).setView([45.464098, 9.191926], zoom);
     let places = [];
      return{
+        setData: (dato) =>{places=dato},
         add: (dato) =>{
                 map.setView(dato.coords, zoom);
                 places.push(dato);
