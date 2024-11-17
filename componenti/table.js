@@ -51,6 +51,8 @@ export const tableComponent = () => {
             parentElement.innerHTML = html;
         },
         render_filtro:(data) =>{
+            let html = ` <tr class="tbl1"><td>Indirizzo</td><td>Targa 1</td>
+            <td>Targa 2</td><td>Targa 3</td><td>Data</td><td>Ora</td><td>Feriti</td><td>Morti</td></tr>`
             data.forEach((el) => {
                 let html2 = "";
                 html2 += templateRow.replace("#D1", el.indirizzo);
