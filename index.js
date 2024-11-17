@@ -14,6 +14,8 @@ fetch("conf.json").then(r => r.json()).then(conf => {
     const table1 = tableComponent();
     //const compFetch = generateFetchComponent()
     const Map = createMap();
+    const formIst = createForm(formElement)
+
     //compFetch.caricaDati(conf)
     //compFetch.getData().then(data => {
         //form.setLabels(data);
@@ -33,7 +35,7 @@ fetch("conf.json").then(r => r.json()).then(conf => {
         table1.start(starDay)
         table1.render();
     }
-    form.render(table1,compFetch)
+    form.render();
     //setInterval(()=>{
         //compFetch.getData().then(data => {
             //form.setLabels(data);
