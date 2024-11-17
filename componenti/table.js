@@ -17,7 +17,14 @@ export const tableComponent = () => {
 
     return {
         setData: (dato) =>{data=dato},
-        addData: (dato) => {data.push(dato);},
+        addData: (dato,compFetch) => {
+            data.push(dato);
+            compFetch.setData(data).then(dato => {
+                compFetch.getData().then(dato=>{
+                    data=dato;
+                })
+            })
+        },
         setParentElement: (pr) => {
             parentElement = pr;
         },

@@ -1,7 +1,6 @@
 export const createForm = (parentElement) => {
-    return {
-        setLabels: (labels) => { dato = labels; }, 
-        render: (table1, mappa, conf) => {
+    return { 
+        render: (table1, mappa, conf,compFetch) => {
             //creazione input
             parentElement.innerHTML = 
                 `<div>Inserisci la località<br/><input id="indirizzo" type="text" class="form-label form-control"/></div>`+
@@ -48,7 +47,7 @@ export const createForm = (parentElement) => {
                         }
                         if(data[0].lat <= 45.6174047 && data[0].lat >= 45.1821072 && data[0].lon <= 9.4936171 && data[0].lon >= 8.7253673){
                         console.log(dataDiz);
-                        table1.addData(dato);
+                        table1.addData(dato,compFetch);
                         table1.render();
                         mappa.add(dato);
                         mappa.render();

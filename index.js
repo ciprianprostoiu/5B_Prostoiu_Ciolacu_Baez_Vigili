@@ -6,25 +6,24 @@ let starDay = 0;
 
 import {tableComponent} from './componenti/table.js';
 import {createForm} from './componenti/form.js';
-//import {generateFetchComponent} from './componenti/fetch_component.js';
+import {generateFetchComponent} from './componenti/fetch_component.js';
 import {createMap} from './componenti/mappa.js';
 import {ricerca} from './componenti/barra_ricerca.js';
 
 fetch("conf.json").then(r => r.json()).then(conf => {
     const form = createForm(formElement);
     const table1 = tableComponent();
-    //const compFetch = generateFetchComponent()
+    const compFetch = generateFetchComponent()
     const Map = createMap();
     const formIst = createForm(formElement)
 
-    //compFetch.caricaDati(conf)
-    //compFetch.getData().then(data => {
-        //form.setLabels(data);
-        //table1.setData(data); // Imposta i dati nel componente tabella
+    compFetch.caricaDati(conf)
+    compFetch.getData().then(data => {
+        table1.setData(data); // Imposta i dati nel componente tabella
         table1.setParentElement(tabella);
         table1.render(starDay);// Renderizza la tabella con i dati recuperati
         Map.render();
-    //});
+    });
     precendente.onclick = () => {
         starDay -= 7;
         table1.start(starDay)
@@ -36,10 +35,10 @@ fetch("conf.json").then(r => r.json()).then(conf => {
         table1.start(starDay)
         table1.render();
     }
-    form.render(table1, Map, conf);
+    form.render(table1, Map, conf,compFetch);
+    //BARRA DI RICERCA
     let filtro = document.getElementById("filtro");
     filtro.addEventListener('input', function() {
-        console.log('Il valore è stato modificato:', filtro.value);
         let dati = table1.exportData()
         let new_data=ricerca(filtro.value,dati);
         table1.render_filtro(new_data)
