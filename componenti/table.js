@@ -49,6 +49,21 @@ export const tableComponent = () => {
             
             
             parentElement.innerHTML = html;
+        },
+        render_filtro:(data) =>{
+            data.forEach((el) => {
+                let html2 = "";
+                html2 += templateRow.replace("#D1", el.indirizzo);
+                html2 = html2.replace("#D2", el.targa1);
+                html2 = html2.replace("#D3", el.targa2);
+                html2 = html2.replace("#D4", el.targa3);
+                html2 = html2.replace("#D5", el.data);
+                html2 = html2.replace("#D6", el.ora);
+                html2 = html2.replace("#D7", el.feriti);
+                html2 = html2.replace("#D8", el.morti);   
+                html += html2;             
+            });
+            parentElement.innerHTML = html;
         }
     }
 };
