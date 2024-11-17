@@ -45,8 +45,7 @@ export const createForm = (parentElement) => {
                             name: dataDiz,
                             coords: [data[0].lat, data[0].lon]
                         }
-                        if(data[0].lat <= 45.6174047 && data[0].lat >= 45.1821072 && data[0].lon <= 9.4936171 && data[0].lon >= 8.7253673){
-                        console.log(dataDiz);
+                        if(data[0].display_name.toLowerCase().includes("milano") && data[0].lat <= 45.6174047 && data[0].lat >= 45.1821072 && data[0].lon <= 9.4936171 && data[0].lon >= 8.7253673){
                         table1.addData(dato,compFetch);
                         table1.render();
                         mappa.add(dato);

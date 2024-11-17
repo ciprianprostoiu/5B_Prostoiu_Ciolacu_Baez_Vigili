@@ -15,7 +15,6 @@ fetch("conf.json").then(r => r.json()).then(conf => {
     const table1 = tableComponent();
     const compFetch = generateFetchComponent()
     const Map = createMap();
-    const formIst = createForm(formElement)
 
     compFetch.caricaDati(conf)
     compFetch.getData().then(data => {
