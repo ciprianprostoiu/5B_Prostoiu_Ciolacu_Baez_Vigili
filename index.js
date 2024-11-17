@@ -45,3 +45,8 @@ fetch("conf.json").then(r => r.json()).then(conf => {
         //});
     //},300000)
 });
+let filtro = document.getElementById("filtro");
+filtro.addEventListener('input', function() {
+  console.log('Il valore è stato modificato:', filtro.value);
+  ricerca(filtro.value,dati);
+});
