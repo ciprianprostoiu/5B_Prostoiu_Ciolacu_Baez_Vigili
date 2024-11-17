@@ -16,16 +16,16 @@ export const createMap = () =>{
             .then(r => r.json())
             .then(data => {
                 const dato ={
-                    name: element,
+                    name: dataDiz1,
                     coords: [data[0].lat, data[0].lon]
                 }
                 map.setView(dato.coords, zoom);
                 places.push(dato);
                 console.log(places);
-                Map.render(dataDiz1)
+                Map.render()
             })
         },
-        render: (d) => {
+        render: () => {
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                maxZoom: maxZoom,
                minZoom: zoom,
@@ -33,9 +33,9 @@ export const createMap = () =>{
             }).addTo(map);
             places.forEach((place) => {
                const marker = L.marker(place.coords).addTo(map);
-               marker.bindPopup(`<h4>${d.indirizzo}</h4><p>Data: ${d.data}</p><p>Ora: ${d.ora}</p>
-                    <p>Targa 1: ${d.targa1}</p><p>Targa 2: ${d.targa2}</p><p>Targa 3: ${d.targa3}</p>
-                    <p>N° Feriti: ${d.feriti}</p><p>N° Morti: ${d.feriti}</p>
+               marker.bindPopup(`<h4>${place.name.indirizzo}</h4><p>Data: ${place.name.data}</p><p>Ora: ${place.name.ora}</p>
+                    <p>Targa 1: ${place.name.targa1}</p><p>Targa 2: ${place.name.targa2}</p><p>Targa 3: ${place.name.targa3}</p>
+                    <p>N° Feriti: ${place.name.feriti}</p><p>N° Morti: ${place.name.feriti}</p>
                 `);
             });
      }
