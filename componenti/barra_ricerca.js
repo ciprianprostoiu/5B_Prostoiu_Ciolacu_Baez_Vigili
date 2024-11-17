@@ -1,4 +1,4 @@
-const ricerca = (input,dati) =>{
+export const ricerca = (input,dati) =>{
     let lista = []
     console.log(input)
     for(let via of dati){
