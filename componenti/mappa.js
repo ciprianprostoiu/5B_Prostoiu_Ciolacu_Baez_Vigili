@@ -24,7 +24,7 @@ export const createMap = () =>{
                const marker = L.marker(place.coords).addTo(map);
                marker.bindPopup(`<h4>${place.name.indirizzo}</h4><p>Data: ${place.name.data}</p><p>Ora: ${place.name.ora}</p>
                     <p>Targa 1: ${place.name.targa1}</p><p>Targa 2: ${place.name.targa2}</p><p>Targa 3: ${place.name.targa3}</p>
-                    <p>N° Feriti: ${place.name.feriti}</p><p>N° Morti: ${place.name.feriti}</p>
+                    <p>N° Feriti: ${place.name.feriti}</p><p>N° Morti: ${place.name.morti}</p>
                 `);
             });
      }
