@@ -49,5 +49,7 @@ fetch("conf.json").then(r => r.json()).then(conf => {
 let filtro = document.getElementById("filtro");
 filtro.addEventListener('input', function() {
   console.log('Il valore è stato modificato:', filtro.value);
-  ricerca(filtro.value,dati);
+  //dati sono gli incidenti che salviamo
+  let new_data=ricerca(filtro.value,dati);
+  table1.render_filtro(new_data)
 });

@@ -7,4 +7,5 @@ export const ricerca = (input,dati) =>{
         lista.push(via)
       }
     }
+    return lista
   }
