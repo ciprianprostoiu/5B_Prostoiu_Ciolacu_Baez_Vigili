@@ -47,7 +47,10 @@ export const createForm = (parentElement) => {
                             coords: [data[0].lat, data[0].lon]
                         }
                         console.log(dato.coords)
-                        if(data[0].lat>=45.390 && data[0].lat>=45.550 && data[0].lon>=9.010 && data[0].lon<=9.290){
+                        console.log(data[0])
+                        let controllo_milano=data[0].dispay_name
+                        controllo_milano=controllo_milano.split(",")
+                        if(controllo_milano.includes("Milano")){
                         console.log(dataDiz);
                         table1.addData(dato);
                         table1.render();
