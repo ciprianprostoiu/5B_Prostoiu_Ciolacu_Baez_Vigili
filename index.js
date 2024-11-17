@@ -1,10 +1,8 @@
 const tabella = document.getElementById("tabella");
 const precendente = document.getElementById("precedente");
 const successiva = document.getElementById("successiva");
-let starDay = 0;
-const navbar = document.getElementById("navbar");
 const formElement = document.getElementById("form");
-const map = document.getElementById("map");
+let starDay = 0;
 
 import {tableComponent} from './componenti/table.js';
 import {createForm} from './componenti/form.js';
