@@ -2,5 +2,15 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "leaflet": "^1.9.4"
-  }
+  },
+  "name": "5b_prostoiu_ciolacu_vigili",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }

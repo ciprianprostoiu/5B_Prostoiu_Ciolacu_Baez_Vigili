@@ -1,59 +1,44 @@
 export const createForm = (parentElement) => {
-    let dato = {};
-    let callback = null;
-    let tipo="Cardiologia";
     return {
         setLabels: (labels) => { dato = labels; }, 
-        onsubmit: (callbackInput) => { callback = callbackInput; },
-        setType: (tip)=>{tipo=tip;},
-        exportDiz: () => {
-            
-        },
-        render: (table1,compFetch) => {
+        render: () => {
             //creazione input
             parentElement.innerHTML = 
-                `<div>Data<br/><input id="data" type="date" class="form-label form-control"/></div>` +
-                `<div>Ora<br/><select id="ora" name="ora" class="form-select"><option value=8>8</option><option value=9>9</option><option value=10>10</option><option value=11>11</option><option value=12>12</option></select></div>` +
-                `<div>Nome<br/><input id="nome" type="text" class="form-label form-control"/></div>`+
+                `<div>Inserisci la località<br/><input id="nome" type="text" class="form-label form-control"/></div>`+
+                `<div>Data dell'incidente<br/><input id="Data" type="date" class="form-label form-control"/></div>`+
+                `<div>Ora dell'incidente<br/><input id="Ora" type="time" class="form-label form-control"/></div>`+
+                `<div>Targa 1<br/><input id="Targa1" type="text" class="form-label form-control"/></div>`+
+                `<div>Targa 2<br/><input id="Targa2" type="text" class="form-label form-control"/></div>`+
+                `<div>Targa 3<br/><input id="Targa3" type="text" class="form-label form-control"/></div>`+
+                `<div>Numero feriti<br/><input id="Feriti" type="number" class="form-label form-control"/></div>`+
+                `<div>Numero morti<br/><input id="Morti" type="number" class="form-label form-control"/></div>`+
                 `<div id="outputform"></div>`
             //lettura valori inseriti
-            document.querySelector("#Prenota").onclick = () => {
-                const data = document.querySelector("#data").value;
-                const ora = document.querySelector("#ora").value;
+            document.querySelector("#Aggiungi").onclick = () => {
                 const nome = document.querySelector("#nome").value;
-                const outputform = document.getElementById("outputform");
-
-                let date = new Date(data);
-                let giornoCorrente = date.getDay()
-                if (data === "" || ora === "" || nome === "" || giornoCorrente === 0 || giornoCorrente === 6) {
-                    outputform.innerHTML = "KO";
-                } else {
-                    // AGGIUNTA DELLA DATA NEL DIZIONARIO
-                    const datasenzatrattini = data.split("-").join("");
-                    const result={}
-                    let chiave = tipo+"-"+datasenzatrattini+"-"+ora;
-                    if(chiave in dato){
-                        outputform.innerHTML="KO";
-                        
-                    }
-                    else{
-                        dato[chiave] = nome;
-                        outputform.innerHTML = "OK";
-
-                        compFetch.setData(dato).then(data => {
-                            compFetch.getData().then(data=>{
-                                dato=data;
-                                table1.setData(data)
-                                table1.render()
-                            })
-                        })}
+                const data = document.querySelector("#Data").value;
+                const ora = document.querySelector("#Ora").value;
+                const targa1 = document.querySelector("#Targa1").value;
+                const targa2 = document.querySelector("#Targa2").value;
+                const targa3 = document.querySelector("#Targa3").value;
+                const feriti = document.querySelector("#Feriti").value;
+                const morti = document.querySelector("#Morti").value;
+                if (nome === "" || data === "" || ora === "" || targa1 === "" && targa2 === "" && targa3 === "" || feriti === "" || morti === "") {
+                    outputform.innerHTML="ko"
+                }else{
+                    const dataDiz = {
+                        nome: nome,
+                        data: data,
+                        ora: ora,
+                        targa1: targa1,
+                        targa2: targa2,
+                        targa3: targa3,
+                        feriti: feriti,
+                        morti: morti
+                    };
                 }
-                document.querySelector("#data").value="";
-                document.querySelector("#ora").value="8";
-                document.querySelector("#nome").value="";
-
-                }
+                
             }
-
         }
-    };
+    }
+};
