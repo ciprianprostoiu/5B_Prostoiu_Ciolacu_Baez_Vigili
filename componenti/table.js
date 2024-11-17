@@ -23,6 +23,7 @@ export const tableComponent = () => {
         },
         start:(startday)=> {PrecedenteSuccessiva=startday},
         setTipo: (tip)=>{tipo=tip;},
+        exportData: () => {return data;},
         render: () => {
             const exportData = (date) => {
                 // FUNZIONE CHE FORMATTA LA DATA
