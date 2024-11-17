@@ -41,7 +41,7 @@ export const createForm = (parentElement) => {
                     };
                     table1.addData(dataDiz);
                     table1.render();
-                    mappa.add(indirizzo, conf, mappa);
+                    mappa.add(indirizzo, conf, mappa, dataDiz);
                 }
                 
             }

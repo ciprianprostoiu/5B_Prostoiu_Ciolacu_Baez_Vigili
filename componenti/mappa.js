@@ -8,7 +8,7 @@ export const createMap = () =>{
     let map = L.map('map',{maxBounds: Limiti,}).setView([45.464098, 9.191926], zoom);
     let places = [];
      return{
-        add: (element,conf,Map) =>{
+        add: (element,conf,Map, dataDiz1) =>{
             let url="https://us1.locationiq.com/v1/search?key=%TOKEN &q=%NOME, milano &format=json&"
             url = url.replace("%TOKEN",conf.token)
             url = url.replace("%NOME",element)
@@ -22,10 +22,10 @@ export const createMap = () =>{
                 map.setView(dato.coords, zoom);
                 places.push(dato);
                 console.log(places);
-                Map.render()
+                Map.render(dataDiz1)
             })
         },
-        render: () => {
+        render: (d) => {
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                maxZoom: maxZoom,
                minZoom: zoom,
@@ -33,7 +33,10 @@ export const createMap = () =>{
             }).addTo(map);
             places.forEach((place) => {
                const marker = L.marker(place.coords).addTo(map);
-               marker.bindPopup(`<h2>${place.name}</h2><b>${place.name}</b>`);
+               marker.bindPopup(`<h4>${d.indirizzo}</h4><p>Data: ${d.data}</p><p>Ora: ${d.ora}</p>
+                    <p>Targa 1: ${d.targa1}</p><p>Targa 2: ${d.targa2}</p><p>Targa 3: ${d.targa3}</p>
+                    <p>N° Feriti: ${d.feriti}</p><p>N° Morti: ${d.feriti}</p>
+                `);
             });
      }
     }
