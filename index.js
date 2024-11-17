@@ -25,14 +25,12 @@ fetch("conf.json").then(r => r.json()).then(conf => {
         Map.render();
     });
     precendente.onclick = () => {
-        starDay -= 7;
-        table1.start(starDay)
+        table1.indietro()
         table1.render();
     }
 
     successiva.onclick = () => {
-        starDay += 7;
-        table1.start(starDay)
+        table1.avanti()
         table1.render();
     }
     form.render(table1, Map, conf,compFetch);
@@ -43,4 +41,5 @@ fetch("conf.json").then(r => r.json()).then(conf => {
         let new_data=ricerca(filtro.value,dati);
         table1.render_filtro(new_data)
     });
+    
 });

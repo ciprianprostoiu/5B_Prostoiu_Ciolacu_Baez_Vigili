@@ -27,53 +27,43 @@ export const createForm = (parentElement) => {
                     outputform.innerHTML="ko";
                 }else{
                     //TUTTI I CAMPI COMPLETATI
-                    const [anno, mese, giorno] = data.split("-");
                     const adesso = new Date();
-                    if (anno <= adesso.getFullYear()){
-                        if (mese <= parseInt(adesso.getMonth()) + 1) {
-                            if (giorno <= adesso.getDate()) {
-                                const dataDiz = {
-                                "indirizzo": indirizzo,
-                                "data": data,
-                                "ora": ora,
-                                "targa1": targa1,
-                                "targa2": targa2,
-                                "targa3": targa3,
-                                "feriti": feriti,
-                                "morti": morti
-                                };
-                                let url="https://us1.locationiq.com/v1/search?key=%TOKEN &q=%NOME, milano &format=json&"
-                                url = url.replace("%TOKEN",conf.token)
-                                url = url.replace("%NOME",indirizzo)
-                                fetch(url)
-                                .then(r => r.json())
-                                .then(data => {
-                                    const dato ={
-                                        name: dataDiz,
-                                        coords: [data[0].lat, data[0].lon]
-                                    }
-                                    if(data[0].display_name.toLowerCase().includes("milano") && data[0].lat <= 45.6174047 && data[0].lat >= 45.1821072 && data[0].lon <= 9.4936171 && data[0].lon >= 8.7253673){
-
-                                                        table1.addData(dato,compFetch);
-                                        table1.render();
-                                        mappa.add(dato);
-                                        mappa.render();
-                                        outputform.innerHTML="ok";
-                                    }else{
-                                        outputform.innerHTML="ko";
-                                    }
-                                })
-                            } else {
-                                 // LUTENTE HA INSERITO UN GIORNO NEL FUTURO
-                                outputform.innerHTML = "Data invalida";
+                    const [anno, mese, giorno] = data.split("-");
+                    const dataInput = new Date(anno, mese, giorno, 0, 0, 0, 0);
+                    if (dataInput < adesso){
+                        const dataDiz = {
+                        "indirizzo": indirizzo,
+                        "data": data,
+                        "ora": ora,
+                        "targa1": targa1,
+                        "targa2": targa2,
+                        "targa3": targa3,
+                        "feriti": feriti,
+                        "morti": morti
+                        };
+                        let url="https://us1.locationiq.com/v1/search?key=%TOKEN &q=%NOME, milano &format=json&"
+                        url = url.replace("%TOKEN",conf.token)
+                        url = url.replace("%NOME",indirizzo)
+                        fetch(url)
+                        .then(r => r.json())
+                        .then(data => {
+                            const dato ={
+                                name: dataDiz,
+                                coords: [data[0].lat, data[0].lon]
                             }
-                        } else {
-                            // LUTENTE HA INSERITO UN MESE NEL FUTURO
-                            outputform.innerHTML = "Data invalida";
-                        }
+                            if(data[0].display_name.toLowerCase().includes("milano") && data[0].lat <= 45.6174047 && data[0].lat >= 45.1821072 && data[0].lon <= 9.4936171 && data[0].lon >= 8.7253673){
+
+                                                table1.addData(dato,compFetch);
+                                table1.render();
+                                mappa.add(dato);
+                                mappa.render();
+                                outputform.innerHTML="ok";
+                            }else{
+                                outputform.innerHTML="ko";
+                            }
+                        })
                     } else {
-                        // LUTENTE HA INSERITO UN ANNO NEL FUTURO
-                        outputform.innerHTML = "Data invalida";
+                        outputform.innerHTML="DATA INVALIDA";
                     }
                     
                 
