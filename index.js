@@ -37,12 +37,12 @@ fetch("conf.json").then(r => r.json()).then(conf => {
         table1.render();
     }
     form.render(table1, Map, conf);
-    //setInterval(()=>{
-        //compFetch.getData().then(data => {
-            //form.setLabels(data);
-            //table1.setData(data); // Imposta i dati nel componente tabella
-            //table1.render(starDay);// Renderizza la tabella con i dati recuperati
-            
-        //});
-    //},300000)
+    let filtro = document.getElementById("filtro");
+    filtro.addEventListener('input', function() {
+    console.log('Il valore è stato modificato:', filtro.value);
+    let dati = table1.exportData()
+    console.log(dati)
+    let new_data=ricerca(filtro.value,dati);
+    table1.render_filtro(new_data)
+    });
 });
