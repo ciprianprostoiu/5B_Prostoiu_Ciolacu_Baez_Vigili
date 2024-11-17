@@ -24,9 +24,8 @@ export const createForm = (parentElement) => {
                 const feriti = document.querySelector("#Feriti").value;
                 const morti = document.querySelector("#Morti").value;
                 if (indirizzo === "" || data === "" || ora === "" || targa1 === "" && targa2 === "" && targa3 === "" || feriti === "" || morti === "") {
-                    outputform.innerHTML="ko"
+                    outputform.innerHTML="ko";
                 }else{
-                    outputform.innerHTML="ok";
                     const dataDiz = {
                         "indirizzo": indirizzo,
                         "data": data,
@@ -36,15 +35,32 @@ export const createForm = (parentElement) => {
                         "targa3": targa3,
                         "feriti": feriti,
                         "morti": morti
-
-                    
                     };
-                    table1.addData(dataDiz);
-                    table1.render();
-                    mappa.add(indirizzo, conf, mappa, dataDiz);
-                }
+                    let url="https://us1.locationiq.com/v1/search?key=%TOKEN &q=%NOME, milano &format=json&"
+                    url = url.replace("%TOKEN",conf.token)
+                    url = url.replace("%NOME",indirizzo)
+                    fetch(url)
+                    .then(r => r.json())
+                    .then(data => {
+                        const dato ={
+                            name: dataDiz,
+                            coords: [data[0].lat, data[0].lon]
+                        }
+                        console.log(dato.coords)
+                        if(data[0].lat>=45.390 && data[0].lat>=45.550 && data[0].lon>=9.010 && data[0].lon<=9.290){
+                        console.log(dataDiz);
+                        table1.addData(dato);
+                        table1.render();
+                        mappa.add(dato);
+                        mappa.render();
+                        outputform.innerHTML="ok";
+                        }else{
+                            outputform.innerHTML="ko";
+                        }
+                })
                 
             }
         }
     }
-};
+}
+}

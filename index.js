@@ -36,12 +36,4 @@ fetch("conf.json").then(r => r.json()).then(conf => {
         table1.render();
     }
     form.render(table1, Map, conf);
-    //setInterval(()=>{
-        //compFetch.getData().then(data => {
-            //form.setLabels(data);
-            //table1.setData(data); // Imposta i dati nel componente tabella
-            //table1.render(starDay);// Renderizza la tabella con i dati recuperati
-            
-        //});
-    //},300000)
 });

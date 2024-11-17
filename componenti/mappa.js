@@ -8,23 +8,10 @@ export const createMap = () =>{
     let map = L.map('map',{maxBounds: Limiti,}).setView([45.464098, 9.191926], zoom);
     let places = [];
      return{
-        add: (element,conf,Map, dataDiz1) =>{
-            let url="https://us1.locationiq.com/v1/search?key=%TOKEN &q=%NOME, milano &format=json&"
-            url = url.replace("%TOKEN",conf.token)
-            url = url.replace("%NOME",element)
-            fetch(url)
-            .then(r => r.json())
-            .then(data => {
-                const dato ={
-                    name: dataDiz1,
-                    coords: [data[0].lat, data[0].lon]
-                }
+        add: (dato) =>{
                 map.setView(dato.coords, zoom);
                 places.push(dato);
-                console.log(places);
-                Map.render()
-            })
-        },
+            },
         render: () => {
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                maxZoom: maxZoom,
