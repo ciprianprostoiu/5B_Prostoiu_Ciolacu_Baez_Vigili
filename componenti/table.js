@@ -23,6 +23,7 @@ export const tableComponent = () => {
         },
         start:(startday)=> {PrecedenteSuccessiva=startday},
         setTipo: (tip)=>{tipo=tip;},
+        exportData: () => {return data;},
         render: () => {
             const exportData = (date) => {
                 // FUNZIONE CHE FORMATTA LA DATA
@@ -48,6 +49,23 @@ export const tableComponent = () => {
             
             
             
+            parentElement.innerHTML = html;
+        },
+        render_filtro:(data) =>{
+            let html = ` <tr class="tbl1"><td>Indirizzo</td><td>Targa 1</td>
+            <td>Targa 2</td><td>Targa 3</td><td>Data</td><td>Ora</td><td>Feriti</td><td>Morti</td></tr>`
+            data.forEach((el) => {
+                let html2 = "";
+                html2 += templateRow.replace("#D1", el.indirizzo);
+                html2 = html2.replace("#D2", el.targa1);
+                html2 = html2.replace("#D3", el.targa2);
+                html2 = html2.replace("#D4", el.targa3);
+                html2 = html2.replace("#D5", el.data);
+                html2 = html2.replace("#D6", el.ora);
+                html2 = html2.replace("#D7", el.feriti);
+                html2 = html2.replace("#D8", el.morti);   
+                html += html2;             
+            });
             parentElement.innerHTML = html;
         }
     }
