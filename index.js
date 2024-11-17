@@ -39,10 +39,9 @@ fetch("conf.json").then(r => r.json()).then(conf => {
     form.render(table1, Map, conf);
     let filtro = document.getElementById("filtro");
     filtro.addEventListener('input', function() {
-    console.log('Il valore è stato modificato:', filtro.value);
-    let dati = table1.exportData()
-    console.log(dati)
-    let new_data=ricerca(filtro.value,dati);
-    table1.render_filtro(new_data)
+        console.log('Il valore è stato modificato:', filtro.value);
+        let dati = table1.exportData()
+        let new_data=ricerca(filtro.value,dati);
+        table1.render_filtro(new_data)
     });
 });
