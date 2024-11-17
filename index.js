@@ -35,7 +35,7 @@ fetch("conf.json").then(r => r.json()).then(conf => {
         table1.start(starDay)
         table1.render();
     }
-    form.render();
+    form.render(table1, Map, conf);
     //setInterval(()=>{
         //compFetch.getData().then(data => {
             //form.setLabels(data);
