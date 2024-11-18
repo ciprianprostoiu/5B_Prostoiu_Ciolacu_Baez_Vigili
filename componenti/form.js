@@ -65,9 +65,16 @@ export const createForm = (parentElement) => {
                     } else {
                         outputform.innerHTML="DATA INVALIDA";
                     }
-                    
                 
             }
+            document.querySelector("#indirizzo").value = "";
+            document.querySelector("#Data").value = "";
+            document.querySelector("#Ora").value = "";
+            document.querySelector("#Targa1").value = "";
+            document.querySelector("#Targa2").value = "";
+            document.querySelector("#Targa3").value = "";
+            document.querySelector("#Feriti").value = "";
+            document.querySelector("#Morti").value = "";
         }
     }
 }
