@@ -29,7 +29,7 @@ export const createForm = (parentElement) => {
                     //TUTTI I CAMPI COMPLETATI
                     const adesso = new Date();
                     const [anno, mese, giorno] = data.split("-");
-                    const dataInput = new Date(anno, mese, giorno, 0, 0, 0, 0);
+                    const dataInput = new Date(anno, mese-1, giorno, 0, 0, 0, 0);
                     if (dataInput < adesso){
                         const dataDiz = {
                         "indirizzo": indirizzo,
