@@ -4,14 +4,14 @@ export const tableComponent = () => {
     let inizioIndex = 0;
     let templateRow = `
         <tr class="tbl1">
-            <td>#D1</td>
-            <td>#D2</td>
-            <td>#D3</td>
-            <td>#D4</td>
-            <td>#D5</td>
-            <td>#D6</td>
-            <td>#D7</td>
-            <td>#D8</td>
+            <td class = "border border-slate-600" >#D1</td>
+            <td class = "border border-slate-600" >#D2</td>
+            <td class = "border border-slate-600" >#D3</td>
+            <td class = "border border-slate-600" >#D4</td>
+            <td class = "border border-slate-600" >#D5</td>
+            <td class = "border border-slate-600" >#D6</td>
+            <td class = "border border-slate-600" >#D7</td>
+            <td class = "border border-slate-600" >#D8</td>
         </tr>
     `;
     let parentElement;
@@ -38,8 +38,9 @@ export const tableComponent = () => {
         exportData: () => {return data;},
         render: () => {
             
-            let html = ` <tr class="tbl1"><td>Indirizzo</td><td>Targa 1</td>
-            <td>Targa 2</td><td>Targa 3</td><td>Data</td><td>Ora</td><td>Feriti</td><td>Morti</td></tr>`
+            let html = ` <tr class="border"><th class="border-spacing-x-2">Indirizzo</th><th class="border">Targa 1</th>
+            <th class="border">Targa 2</th><th class="border">Targa 3</th><th class="border">Data</th><th class="border">Ora</th>
+            <th class="border">Feriti</th><th class="border">Morti</th></tr>`
             let c = 0;
             data2.forEach((el) => {
                 if (c >= inizioIndex && c < (inizioIndex + 5)){

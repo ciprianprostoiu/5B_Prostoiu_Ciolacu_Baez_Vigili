@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/output.css">
 </head>
 <body>
-    <h1 class="text-center mt-3">Visualizza incidenti 👮</h1>
+    <h1 class="capitalize text-center text-4xl font-bold">Visualizza incidenti 👮</h1>
 
     <div class="container mt-3 d-flex justify-content-end">
     <!-- Bottone trigger -->
-        <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Aggiungi incidente -></button>
+        <button type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong" data-bs-toggle="modal" data-bs-target="#exampleModal">Aggiungi incidente -></button>
     <!-- Modale -->
         <div class="modal fade modalltop" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -39,13 +40,15 @@
         <div class="container">
             <div class="row">
               <div class="col-md-6">
-                <input type="text" placeholder="Filtra per via" id="filtro" class="form-label form-control"> 
+                <input type="text" placeholder="Filtra per via" id="filtro" class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"> 
                 <div id="divBtn" class="container mt-3 d-flex justify-content-between">
-                    <button id="precedente" type="button" class="btn btn-info btn-lg"><- Indietro</button>
-                    <button id="successiva" type="button" class="btn btn-info btn-lg">Avanti -></button>
+                    
+                    <button id="precedente" type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"><- Indietro</button>
+                    <button id="successiva" type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong">Avanti -></button>
                 </div>
                 <div><p></p></div>
-                <table id="tabella" class="table table-bordered border-info bg-light text-center align-middle"></table>
+                <br>
+                <table id="tabella" class="table pt-16"></table>
             </div>
               <div class="col-md-6"> 
                 <div id="map"></div>
@@ -54,7 +57,7 @@
           </div>
         </div>
     
-    <footer class="blockquote-footer text-center py-3 mt-auto mt-3">
+    <footer class="blockquote-footer text-center py-3">
         <p>Made By: Tommaso Ciolacu, Ciprian Prostoiu & Nicolas Baez</p>
     </footer>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
