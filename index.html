@@ -15,7 +15,7 @@
 
     <div class="container mt-3 d-flex justify-content-end">
     <!-- Bottone trigger -->
-        <button type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong" data-bs-toggle="modal" data-bs-target="#exampleModal">Aggiungi incidente -></button>
+        <button type="button" id="buttonaggiungi" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong" data-bs-toggle="modal" data-bs-target="#exampleModal">Aggiungi incidente -></button>
     <!-- Modale -->
         <div class="modal fade modalltop" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -30,6 +30,23 @@
                 <div class="modal-footer">
                     <button id="Annulla" type="button" class="btn btn-outline-danger btn-lg" data-bs-dismiss="modal">Annulla</button>
                     <button id="Aggiungi" type="button" class="btn btn-outline-success btn-lg" data-bs-dismiss="modal">Aggiungi -> </button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 motion-reduce:transition-none dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong" data-bs-toggle="modal" data-bs-target="#loginmodal">Login</button>
+        <div class="modal fade modalltop" id="loginmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="formlogin" class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button id="Login" type="button" class="btn btn-outline-success btn-lg" data-bs-dismiss="modal">Login</button>
                 </div>
                 </div>
             </div>

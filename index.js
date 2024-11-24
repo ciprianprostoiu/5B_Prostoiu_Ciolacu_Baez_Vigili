@@ -2,19 +2,27 @@ const tabella = document.getElementById("tabella");
 const precendente = document.getElementById("precedente");
 const successiva = document.getElementById("successiva");
 const formElement = document.getElementById("form");
+const formLogin = document.getElementById("formlogin");
+const bottone_aggiungi = document.getElementById("buttonaggiungi")
+document.body.focus();
+bottone_aggiungi.classList.add("d-none");
 let starDay = 0;
 
 import {tableComponent} from './componenti/table.js';
 import {createForm} from './componenti/form.js';
+import {createFormLogin} from './componenti/form_login.js';
+import { createLogin } from './componenti/login.js';
 import {generateFetchComponent} from './componenti/fetch_component.js';
 import {createMap} from './componenti/mappa.js';
 import {ricerca} from './componenti/barra_ricerca.js';
 
 fetch("conf.json").then(r => r.json()).then(conf => {
     const form = createForm(formElement);
+    const form_login = createFormLogin(formLogin);
     const table1 = tableComponent();
-    const compFetch = generateFetchComponent()
+    const compFetch = generateFetchComponent();
     const Map = createMap();
+    const Login = createLogin();
 
     compFetch.caricaDati(conf)
     compFetch.getData().then(data => {
@@ -34,6 +42,7 @@ fetch("conf.json").then(r => r.json()).then(conf => {
         table1.render();
     }
     form.render(table1, Map, conf,compFetch);
+    form_login.render(Login,bottone_aggiungi)
     //BARRA DI RICERCA
     let filtro = document.getElementById("filtro");
     filtro.addEventListener('input', function() {
@@ -44,4 +53,12 @@ fetch("conf.json").then(r => r.json()).then(conf => {
         table1.render()
     });
     
+});
+window.addEventListener("load", function () {
+    let risposta = sessionStorage.getItem("login");
+    let Login = createLogin()
+    console.log(risposta)
+    if (risposta==="true"){
+        Login.render(bottone_aggiungi)
+    }
 });
